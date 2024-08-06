@@ -35,10 +35,10 @@
             )";
 
     // Prepara a SQL
-    $resposta = $conexao->prepare($sql);
+    $state = $conexao->prepare($sql);
 
     // Executa a SQL
-    $resposta->execute([
+    $state->execute([
         ':nome' => $nome,
         ':preco' => $preco,
         ':descricao' => $descricao
