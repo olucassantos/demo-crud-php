@@ -89,3 +89,20 @@ O PHP vai se conectar a um banco de dados MySQL chamado `supermercado`. Vamos cr
 O código deve ser executado em algum SGBD (Sistema Gerenciador de Banco de Dados) como o MySQL Workbench, phpMyAdmin, HeidiSQL, etc. Ou pode ser executado diretamente no terminal do MySQL.
 
 > Verifique o arquivo `bancoDados.sql` para o código SQL que cria o banco de dados e a tabela.
+
+
+## Executando o projeto
+
+Para executar o projeto, você precisa de um servidor web com PHP e MySQL instalados. Você pode usar o XAMPP, WAMP, MAMP ou qualquer outro pacote de servidor web que inclua PHP e MySQL.
+
+Também é possivel utilizar o servidor embutido do PHP. Para isso, basta executar o seguinte comando no terminal:
+
+```bash
+    php -S localhost:8000
+```
+
+Depois de executar o servidor, abra o navegador e acesse `http://localhost:8000` para ver o formulário HTML. Preencha o formulário e envie os dados. Os dados serão armazenados no banco de dados MySQL.
+
+## Conclusão
+
+Neste artigo, aprendemos como conectar e armazenar dados em um banco de dados MySQL usando PHP. Criamos um formulário HTML para coletar dados do usuário e, em seguida, armazenamos esses dados no banco de dados MySQL usando PHP.
