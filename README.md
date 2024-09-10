@@ -1,4 +1,4 @@
-# Conectando e armazenando no banco de dados com PHP
+# CRUD de Produtos com PHP e MySQL
 
 https://github.com/olucassantos/demo-crud-php
 
