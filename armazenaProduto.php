@@ -11,13 +11,13 @@
     // Verifica se as informações estão corretas
     if (empty($nome)) {
         $mensagem = "O campo nome é obrigatório"; // Mensagem de erro
-        header("Location: index.php?msg=$mensagem"); // Volta para a tela de cadastro
+        header("Location: cadastroProduto.php?msg=$mensagem"); // Volta para a tela de cadastro
     } 
 
     if (empty($preco) || empty($descricao))
     {
         $mensagem = "O campo preço e descrição são obrigatórios";
-        header("Location: index.php?msg=$mensagem");
+        header("Location: cadastroProduto.php?msg=$mensagem");
     }
 
     // Conectar ao banco de dados
@@ -50,8 +50,8 @@
     // Redirecionar para a tela de cadastro
     if ($armazenou) { // Se armazenou for verdadeiro
         $mensagem = "Produto cadastrado com sucesso!";
-        header("Location: index.php?msg=$mensagem");
+        header("Location: cadastroProduto.php?msg=$mensagem");
     } else { // Se armazenou for falso
         $mensagem = "Erro ao cadastrar o produto";
-        header("Location: index.php?msg=$mensagem");
+        header("Location: cadastroProduto.php?msg=$mensagem");
     }
