@@ -105,6 +105,37 @@ Também é possivel utilizar o servidor embutido do PHP. Para isso, basta execut
 
 Depois de executar o servidor, abra o navegador e acesse `http://localhost:8000` para ver o formulário HTML. Preencha o formulário e envie os dados. Os dados serão armazenados no banco de dados MySQL.
 
+## Criação da listagem de produtos
+
+No arquivo `listaProdutos.php` foi criado um código PHP para listar os produtos cadastrados no banco de dados. O código PHP se conecta ao banco de dados, executa uma consulta SQL para selecionar todos os produtos da tabela `produtos` e exibe os produtos em uma tabela HTML.
+
+- Para listar os produtos, é necessário criar uma instancia do PDO e preparar a consulta SQL para selecionar todos os produtos da tabela `produtos`. Ex:
+```php
+    $state = $conexao->prepare("SELECT id, nome, preco FROM produtos");
+```
+
+O comando `prepare()` prepara o código de SQL evitando SQL Injection. O método `execute()` executa a consulta SQL e o método `fetchAll()` retorna todas as linhas do resultado da consulta como um array.
+
+```php
+    $state->execute(); // Executa a consulta SQL
+
+    $produtos = $state->fetchAll(); // Retorna todas as linhas do resultado da consulta como um array na variável $produtos
+```
+
+Com a lista de produtos na variável podemos fazer um laço de repetição para mostrar os produtos em uma tabela.
+
+```php
+    foreach ($produtos as $produto) {
+        echo "<tr>";
+        echo "<td>{$produto['id']}</td>";
+        echo "<td>{$produto['nome']}</td>";
+        echo "<td>{$produto['preco']}</td>";
+        echo "</tr>";
+    }
+```
+
+> Verifique o arquivo `listaProdutos.php` para o código PHP que lista os produtos cadastrados no banco de dados.
+
 ## Conclusão
 
 Neste artigo, aprendemos como conectar e armazenar dados em um banco de dados MySQL usando PHP. Criamos um formulário HTML para coletar dados do usuário e, em seguida, armazenamos esses dados no banco de dados MySQL usando PHP.

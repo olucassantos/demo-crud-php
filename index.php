@@ -13,6 +13,7 @@
         <h1>Supermercados Marion</h1>
     
         <a href="cadastroProduto.php">Cadastrar Produto</a>
+        <a href="listaProdutos.php">Listar Produto</a>
     </div>
 </body>
 

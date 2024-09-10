@@ -5,8 +5,11 @@
     // Cria o SQL para buscar os produtos
     $sql = "SELECT id, nome, preco FROM produtos";
 
+    // Prepara a SQL para evitar SQL Injection
+    $con = $conexao->prepare($sql);
+
     // Executa a SQL
-    $con = $conexao->query($sql);
+    $con->execute();
 
     // Armazena os produtos em uma variável
     $produtos = $con->fetchAll();
