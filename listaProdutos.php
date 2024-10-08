@@ -44,7 +44,7 @@
                                 <td>{$produto["nome"]}</td>
                                 <td>R$ {$produto["preco"]}</td>
                                 <td>
-                                    <a class='btn btn-sm btn-success' href='#'>Ver</a>
+                                    <a class='btn btn-sm btn-success' href='verProduto.php?id={$produto["id"]}'>Ver</a>
                                 </td>
                             </tr>";
                     }
