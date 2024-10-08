@@ -136,6 +136,49 @@ Com a lista de produtos na variável podemos fazer um laço de repetição para 
 
 > Verifique o arquivo `listaProdutos.php` para o código PHP que lista os produtos cadastrados no banco de dados.
 
+## Tela de Visualização dos Produtos
+
+A lista mostra apenas o ID, nome e preço dos produtos. Para visualizar a descrição completa do produto, é necessário criar uma tela de visualização de produtos. Para a tela de visualização de produtos, vamos criar um arquivo chamado `verProduto.php`.
+
+O arquivo `verProduto.php` recebe o ID do produto como um parâmetro de consulta na URL e exibe a descrição completa do produto.
+
+Parâmetros de consulta são uma maneira de passar dados de uma página para outra. Os parâmetros de consulta são adicionados ao final de uma URL após o caractere `?`. Ex:
+```
+    http://localhost:8000/verProduto.php?id=1
+```
+
+Vários parâmetros de consulta são separados por `&`. Ex:
+```
+    http://localhost:8000/verProduto.php?id=1&nome=produto
+```
+
+No arquivo destino podemos receber o ID utilizando a variável `$_GET`. Ex:
+```php
+    $id = $_GET['id'];
+```
+
+Depois de receber o ID, podemos preparar uma consulta SQL para selecionar o produto com o ID especificado. Ex:
+```php
+    $state = $conexao->prepare("SELECT * FROM produtos WHERE id = :id");
+```
+
+Em seguida, podemos executar a consulta SQL e exibir os detalhes do produto.
+
+```php
+    $state->execute([':id' => $id]);
+
+    $produto = $state->fetch();
+```
+
+Com a variável `$produto` preenchida, podemos exibir os detalhes do produto.
+
+```php
+    echo "<h1>{$produto['nome']}</h1>";
+    echo "<p>{$produto['descricao']}</p>";
+```	
+
+> Verifique o arquivo `verProduto.php` para o código PHP que exibe a descrição completa do produto.
+
 ## Conclusão
 
 Neste artigo, aprendemos como conectar e armazenar dados em um banco de dados MySQL usando PHP. Criamos um formulário HTML para coletar dados do usuário e, em seguida, armazenamos esses dados no banco de dados MySQL usando PHP.
