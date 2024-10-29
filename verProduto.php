@@ -1,21 +1,27 @@
 <?php
-// Conexão com banco de dados
-$conexao = new PDO('mysql:host=localhost;dbname=supermercado', 'root', '');
+    // Conexão com banco de dados
+    $conexao = new PDO('mysql:host=localhost;dbname=supermercado', 'root', '');
 
-// Cria o SQL para buscar os produtos
-$sql = "SELECT * FROM produtos WHERE id = :id";
+    // Cria o SQL para buscar os produtos
+    $sql = "SELECT * FROM produtos WHERE id = :id";
 
-// Pega o ID da URL
-$id = $_GET['id'];
+    // Verifica se existe ID na url
+    if (!isset($_GET['id'])) {
+        header("Location: listaProdutos.php");
+        exit;
+    }
 
-// Prepara a SQL para evitar Invasões
-$con = $conexao->prepare($sql);
+    // Pega o ID da URL
+    $id = $_GET['id'];
 
-// Executa a SQL com os parametros
-$con->execute([':id' => $id]);
+    // Prepara a SQL para evitar Invasões
+    $con = $conexao->prepare($sql);
 
-// Guarda o produto na variável
-$produto = $con->fetch();
+    // Executa a SQL com os parametros
+    $con->execute([':id' => $id]);
+
+    // Guarda o produto na variável
+    $produto = $con->fetch();
 ?>
 
 <html>
